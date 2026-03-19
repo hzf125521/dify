@@ -1,0 +1,759 @@
+app:
+  description: ''
+  icon: 298b3a54-2abc-4d32-89d9-6c36c46bb6c1
+  icon_background: '#FFEAD5'
+  mode: advanced-chat
+  name: 小神探智问助手
+  use_icon_as_answer_icon: true
+dependencies: []
+kind: app
+version: 0.5.0
+workflow:
+  conversation_variables:
+  - description: ''
+    id: 655d9ffe-5b7a-49dc-acd0-333cd2e277d7
+    name: token
+    selector:
+    - conversation
+    - token
+    value: ''
+    value_type: string
+  - description: ''
+    id: ae3d3fd5-6f07-4f22-bbf1-df7aab97c2ea
+    name: current_time
+    selector:
+    - conversation
+    - current_time
+    value: ''
+    value_type: string
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        image_file_size_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: false
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: tool
+      id: 1757583564549-source-1760876912909-target
+      selected: false
+      source: '1757583564549'
+      sourceHandle: source
+      target: '1760876912909'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: assigner
+      id: 1760876912909-source-1760344661525-target
+      selected: false
+      source: '1760876912909'
+      sourceHandle: source
+      target: '1760344661525'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: agent
+      id: 1757583564549-source-1760942568367-target
+      selected: false
+      source: '1757583564549'
+      sourceHandle: source
+      target: '1760942568367'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: agent
+      id: 1760876912909-source-1760942568367-target
+      selected: false
+      source: '1760876912909'
+      sourceHandle: source
+      target: '1760942568367'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: agent
+        targetType: answer
+      id: 1760942568367-source-1760941978304-target
+      source: '1760942568367'
+      sourceHandle: source
+      target: '1760941978304'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: if-else
+      id: 1757583564549-source-1769441025825-target
+      source: '1757583564549'
+      sourceHandle: source
+      target: '1769441025825'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: assigner
+        targetType: agent
+      id: 1769441102469-source-1760942568367-target
+      source: '1769441102469'
+      sourceHandle: source
+      target: '1760942568367'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: assigner
+        targetType: agent
+      id: 1769441174525-source-1760942568367-target
+      selected: false
+      source: '1769441174525'
+      sourceHandle: source
+      target: '1760942568367'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: assigner
+      id: 1769441025825-true-1769441102469-target
+      source: '1769441025825'
+      sourceHandle: 'true'
+      target: '1769441102469'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: assigner
+      id: 1769441025825-false-1769441174525-target
+      source: '1769441025825'
+      sourceHandle: 'false'
+      target: '1769441174525'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: 开始
+        type: start
+        variables:
+        - default: ''
+          hide: true
+          hint: ''
+          label: orgId
+          max_length: 48
+          options: []
+          placeholder: ''
+          required: false
+          type: text-input
+          variable: orgId
+        - default: ''
+          hide: true
+          hint: ''
+          label: orgName
+          max_length: 48
+          options: []
+          placeholder: ''
+          required: false
+          type: text-input
+          variable: orgName
+        - hide: true
+          hint: ''
+          label: plantId
+          max_length: 48
+          options: []
+          placeholder: ''
+          required: false
+          type: text-input
+          variable: plantId
+        - hide: true
+          hint: ''
+          label: plantName
+          max_length: 48
+          options: []
+          placeholder: ''
+          required: false
+          type: text-input
+          variable: plantName
+        - default: ''
+          hide: true
+          hint: ''
+          label: deptId
+          max_length: 48
+          options: []
+          placeholder: ''
+          required: false
+          type: text-input
+          variable: deptId
+        - default: ''
+          hide: true
+          hint: ''
+          label: deptName
+          max_length: 48
+          options: []
+          placeholder: ''
+          required: false
+          type: text-input
+          variable: deptName
+        - default: 黄芝富
+          hide: true
+          hint: ''
+          label: user_name
+          max_length: 48
+          options: []
+          placeholder: ''
+          required: false
+          type: text-input
+          variable: user_name
+        - default: Code 35071c56-41ac-4ec9-88ba-bb550a84c8da.7p4UCbIsQalM8FKJlXhytQDE+e1cPUIx/2nKDho410YC+mnNB3zWgR7N5azJ+Ui2jXrtVCntXAnVPzvllZlUmkUUy/8OFym2jtpDvocdv0o=
+          hide: true
+          hint: ''
+          label: userAuthorization
+          max_length: 4096
+          options: []
+          placeholder: ''
+          required: false
+          type: paragraph
+          variable: userAuthorization
+      height: 290
+      id: '1757583564549'
+      position:
+        x: -113.39037312061053
+        y: 246.6085703114254
+      positionAbsolute:
+        x: -113.39037312061053
+        y: 246.6085703114254
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        desc: ''
+        items:
+        - input_type: variable
+          operation: over-write
+          value:
+          - '1760876912909'
+          - text
+          variable_selector:
+          - conversation
+          - current_time
+          write_mode: over-write
+        selected: false
+        title: 变量赋值
+        type: assigner
+        version: '2'
+      height: 83
+      id: '1760344661525'
+      position:
+        x: 790.7152741427128
+        y: 222.48590540320657
+      positionAbsolute:
+        x: 790.7152741427128
+        y: 222.48590540320657
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        is_team_authorization: true
+        paramSchemas:
+        - auto_generate: null
+          default: '%Y-%m-%d %H:%M:%S'
+          form: form
+          human_description:
+            en_US: Time format in strftime standard.
+            ja_JP: Time format in strftime standard.
+            pt_BR: Time format in strftime standard.
+            zh_Hans: strftime 标准的时间格式。
+          label:
+            en_US: Format
+            ja_JP: Format
+            pt_BR: Format
+            zh_Hans: 格式
+          llm_description: null
+          max: null
+          min: null
+          name: format
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: UTC
+          form: form
+          human_description:
+            en_US: Timezone
+            ja_JP: Timezone
+            pt_BR: Timezone
+            zh_Hans: 时区
+          label:
+            en_US: Timezone
+            ja_JP: Timezone
+            pt_BR: Timezone
+            zh_Hans: 时区
+          llm_description: null
+          max: null
+          min: null
+          name: timezone
+          options:
+          - icon: null
+            label:
+              en_US: UTC
+              ja_JP: UTC
+              pt_BR: UTC
+              zh_Hans: UTC
+            value: UTC
+          - icon: null
+            label:
+              en_US: America/New_York
+              ja_JP: America/New_York
+              pt_BR: America/New_York
+              zh_Hans: 美洲/纽约
+            value: America/New_York
+          - icon: null
+            label:
+              en_US: America/Los_Angeles
+              ja_JP: America/Los_Angeles
+              pt_BR: America/Los_Angeles
+              zh_Hans: 美洲/洛杉矶
+            value: America/Los_Angeles
+          - icon: null
+            label:
+              en_US: America/Chicago
+              ja_JP: America/Chicago
+              pt_BR: America/Chicago
+              zh_Hans: 美洲/芝加哥
+            value: America/Chicago
+          - icon: null
+            label:
+              en_US: America/Sao_Paulo
+              ja_JP: America/Sao_Paulo
+              pt_BR: América/São Paulo
+              zh_Hans: 美洲/圣保罗
+            value: America/Sao_Paulo
+          - icon: null
+            label:
+              en_US: Asia/Shanghai
+              ja_JP: Asia/Shanghai
+              pt_BR: Asia/Shanghai
+              zh_Hans: 亚洲/上海
+            value: Asia/Shanghai
+          - icon: null
+            label:
+              en_US: Asia/Ho_Chi_Minh
+              ja_JP: Asia/Ho_Chi_Minh
+              pt_BR: Ásia/Ho Chi Minh
+              zh_Hans: 亚洲/胡志明市
+            value: Asia/Ho_Chi_Minh
+          - icon: null
+            label:
+              en_US: Asia/Tokyo
+              ja_JP: Asia/Tokyo
+              pt_BR: Asia/Tokyo
+              zh_Hans: 亚洲/东京
+            value: Asia/Tokyo
+          - icon: null
+            label:
+              en_US: Asia/Dubai
+              ja_JP: Asia/Dubai
+              pt_BR: Asia/Dubai
+              zh_Hans: 亚洲/迪拜
+            value: Asia/Dubai
+          - icon: null
+            label:
+              en_US: Asia/Kolkata
+              ja_JP: Asia/Kolkata
+              pt_BR: Asia/Kolkata
+              zh_Hans: 亚洲/加尔各答
+            value: Asia/Kolkata
+          - icon: null
+            label:
+              en_US: Asia/Seoul
+              ja_JP: Asia/Seoul
+              pt_BR: Asia/Seoul
+              zh_Hans: 亚洲/首尔
+            value: Asia/Seoul
+          - icon: null
+            label:
+              en_US: Asia/Singapore
+              ja_JP: Asia/Singapore
+              pt_BR: Asia/Singapore
+              zh_Hans: 亚洲/新加坡
+            value: Asia/Singapore
+          - icon: null
+            label:
+              en_US: Europe/London
+              ja_JP: Europe/London
+              pt_BR: Europe/London
+              zh_Hans: 欧洲/伦敦
+            value: Europe/London
+          - icon: null
+            label:
+              en_US: Europe/Berlin
+              ja_JP: Europe/Berlin
+              pt_BR: Europe/Berlin
+              zh_Hans: 欧洲/柏林
+            value: Europe/Berlin
+          - icon: null
+            label:
+              en_US: Europe/Moscow
+              ja_JP: Europe/Moscow
+              pt_BR: Europe/Moscow
+              zh_Hans: 欧洲/莫斯科
+            value: Europe/Moscow
+          - icon: null
+            label:
+              en_US: Australia/Sydney
+              ja_JP: Australia/Sydney
+              pt_BR: Australia/Sydney
+              zh_Hans: 澳大利亚/悉尼
+            value: Australia/Sydney
+          - icon: null
+            label:
+              en_US: Pacific/Auckland
+              ja_JP: Pacific/Auckland
+              pt_BR: Pacific/Auckland
+              zh_Hans: 太平洋/奥克兰
+            value: Pacific/Auckland
+          - icon: null
+            label:
+              en_US: Africa/Cairo
+              ja_JP: Africa/Cairo
+              pt_BR: Africa/Cairo
+              zh_Hans: 非洲/开罗
+            value: Africa/Cairo
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: select
+        params:
+          format: ''
+          timezone: ''
+        provider_id: time
+        provider_name: time
+        provider_type: builtin
+        retry_config:
+          max_retries: 1
+          retry_enabled: true
+          retry_interval: 1000
+        selected: false
+        title: 获取当前时间
+        tool_configurations:
+          format:
+            type: mixed
+            value: '%Y-%m-%d %H:%M:%S'
+          timezone:
+            type: constant
+            value: Asia/Shanghai
+        tool_description: 一个用于获取当前时间的工具。
+        tool_label: 获取当前时间
+        tool_name: current_time
+        tool_node_version: '2'
+        tool_parameters: {}
+        type: tool
+      height: 143
+      id: '1760876912909'
+      position:
+        x: 433.2495545881909
+        y: 125.92919977897611
+      positionAbsolute:
+        x: 433.2495545881909
+        y: 125.92919977897611
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        answer: '{{#1760942568367.text#}}'
+        selected: false
+        title: 直接回复
+        type: answer
+        variables: []
+      height: 102
+      id: '1760941978304'
+      position:
+        x: 1718.9049039462466
+        y: 468.1664847249724
+      positionAbsolute:
+        x: 1718.9049039462466
+        y: 468.1664847249724
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        agent_parameters:
+          instruction:
+            type: constant
+            value: '## 角色
+
+              你叫“小神探”，一个工业设备在线监测与预测性维护系统的智能查询助手。
+
+
+              ## 基本约束
+
+              1.*严禁输出政治、宗教、性别等敏感内容*。
+
+              2.优先使用工具进行回复，除非工具与用户提问无关。
+
+
+              ## 输出规范与数据时效
+
+              - 回复语言与用户输入语言严格一致。
+
+              - 用户看不懂工具中的equipmentId和equipmentOnlyCode，所以禁止提及和输出。
+
+              - 当前北京时间：{{#1760876912909.text#}}
+
+
+              ## 核心交互规则
+
+              **内容输出**
+
+              - 用简洁、准确、结构化的方式回答用户问题。
+
+              - 注意输出结果要条理清晰，必要的话要有层级结构高亮。
+
+
+              **耐心澄清**
+
+              - 当用户描述不够清晰时，不要武断回答，采用分步提问，引导用户逐步补充关键信息。
+
+
+              **持续交互引导**
+
+              - 在回答末尾，基于当前话题以及历史对话提出 1–2 个可继续探讨的相关方向。
+
+              - 鼓励用户从中挑选一个继续提问，以保持对话流畅。
+
+
+              ## 工具使用规则
+
+              **工具调用**
+
+              - 严禁提及工具名称。
+
+              - 当工具执行失败或者返回为空时，请如实说明，**严禁**捏造信息。
+
+              - 工具返回的信息多余用户提问时，请按需使用，无需总结全部信息。'
+          maximum_iterations:
+            type: constant
+            value: 10
+          mcp_prompts_as_tools:
+            type: constant
+            value: false
+          mcp_resources_as_tools:
+            type: constant
+            value: false
+          mcp_servers_config:
+            type: constant
+            value: "{\n  \"server_name1\": {\n    \"transport\": \"streamable_http\"\
+              ,\n    \"url\": \"http://mie.mcp.local:8001/mcp\",\n    \"headers\"\
+              : {\"Authorization\":\"{{#conversation.token#}}\"},\n    \"timeout\"\
+              : 50,\n    \"sse_read_timeout\": 50\n  }\n}"
+          model:
+            type: constant
+            value:
+              completion_params: {}
+              mode: chat
+              model: deepseek-chat
+              model_type: llm
+              provider: langgenius/deepseek/deepseek
+              type: model-selector
+          query:
+            type: constant
+            value: '{{#sys.query#}}'
+          tools:
+            type: constant
+            value: []
+        agent_strategy_label: FunctionCalling (支持 MCP 工具)
+        agent_strategy_name: mcp_sse_function_calling
+        agent_strategy_provider_name: junjiem/mcp_see_agent/mcp_see_agent
+        memory:
+          query_prompt_template: '{{#sys.query#}}
+
+
+            {{#sys.files#}}'
+          window:
+            enabled: true
+            size: 25
+        meta:
+          minimum_dify_version: null
+          version: 0.0.1
+        output_schema: {}
+        plugin_unique_identifier: junjiem/mcp_see_agent:0.2.4@82caf96890992e9dec2c43c3fac82bfce8bd18a41de7c2b6948151b2d7f7b7a2
+        selected: false
+        title: XST Agent
+        tool_node_version: '2'
+        type: agent
+      height: 135
+      id: '1760942568367'
+      position:
+        x: 1346.3401886506654
+        y: 449.78731146156747
+      positionAbsolute:
+        x: 1346.3401886506654
+        y: 449.78731146156747
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: not empty
+            id: 55ae8e8e-7c00-4706-94a2-0d2e457e467e
+            value: ''
+            varType: string
+            variable_selector:
+            - '1757583564549'
+            - userAuthorization
+          id: 'true'
+          logical_operator: and
+        selected: false
+        title: 条件分支
+        type: if-else
+      height: 123
+      id: '1769441025825'
+      position:
+        x: 45.5784695759416
+        y: 774.1217705699797
+      positionAbsolute:
+        x: 45.5784695759416
+        y: 774.1217705699797
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        items:
+        - input_type: variable
+          operation: over-write
+          value:
+          - '1757583564549'
+          - userAuthorization
+          variable_selector:
+          - conversation
+          - token
+          write_mode: over-write
+        selected: false
+        title: 变量赋值 2
+        type: assigner
+        version: '2'
+      height: 83
+      id: '1769441102469'
+      position:
+        x: 586.6974581409131
+        y: 557.0177863960097
+      positionAbsolute:
+        x: 586.6974581409131
+        y: 557.0177863960097
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        items:
+        - input_type: constant
+          operation: set
+          value: Code 35071c56-41ac-4ec9-88ba-bb550a84c8da.7p4UCbIsQalM8FKJlXhytQDE+e1cPUIx/2nKDho410YC+mnNB3zWgR7N5azJ+Ui2jXrtVCntXAnVPzvllZlUmkUUy/8OFym2jtpDvocdv0o=
+          variable_selector:
+          - conversation
+          - token
+          write_mode: over-write
+        selected: false
+        title: 变量赋值 3
+        type: assigner
+        version: '2'
+      height: 83
+      id: '1769441174525'
+      position:
+        x: 833.667598867916
+        y: 832.9433624770253
+      positionAbsolute:
+        x: 833.667598867916
+        y: 832.9433624770253
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    viewport:
+      x: 315.44404134461195
+      y: 204.96610702337782
+      zoom: 0.37892915021569296
+  rag_pipeline_variables: []
